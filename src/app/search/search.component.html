@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="input-group mb-3">
+        <div class="form-control" id="search-input">
+            <span class="badge badge-primary mr-sm-2 tag-container" *ngFor="let tag of tags">
+              <span class="tag">{{ tag }}</span>
+            <button type="button" class="close close-badge ml-sm-1 remove-tag" data-dismiss="alert" aria-label="Close" (click)="onTagRemove(tag)">
+                <span aria-hidden="true">×</span>
+              </button>
+            </span>
+            <input class="form-control-sm border-left-0 border-right-0 border-top-0 border border-primary form-control-clean form-control-badge" id="search-tag-input" type="search" placeholder="Search" (keyup)="onKey($event)" />
+        </div>
+        <div class="input-group-append">
+            <button class="btn btn-outline-success my-2 my-sm-0" (click)="onSearch()">&#10147;</button>
+        </div>
+    </div>
+</div>

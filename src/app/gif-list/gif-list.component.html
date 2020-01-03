@@ -1,0 +1,4 @@
+<div class="row">
+    <div id="card-list" class="card-columns" #cardColumns [ngStyle]="{ 'display': !isLoadingContent ? 'block' : 'none' }"></div>
+    <div id="loading-msessage"*ngIf="isLoadingContent">Loading...</div>
+</div>

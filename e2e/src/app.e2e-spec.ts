@@ -67,6 +67,29 @@ describe('workspace-project App', () => {
     expect(tagList.length).toEqual(1);
   });
 
+  it('should navigate to home page after remove all tags in search box', async () => {
+    const searchInput = page.getSearchInput();
+    const tagOne = 'super';
+    const tagTwo = 'mario';
+    const enterKey = protractor.Key.ENTER;
+
+    searchInput.sendKeys(tagOne);
+    searchInput.sendKeys(enterKey);
+    searchInput.sendKeys(tagTwo);
+    searchInput.sendKeys(enterKey);
+
+    expect(page.getCurrentUrl()).toEqual(`/search/${tagOne}-${tagTwo}/1`);
+
+    let tagList = await page.getSearchTagList();
+    let tag = tagList[0];
+    await tag.element(by.tagName('button')).click();
+    tagList = await page.getSearchTagList();
+    tag = tagList[0];
+    await tag.element(by.tagName('button')).click();
+
+    expect(page.getCurrentUrl()).toEqual('/trending/1');
+  });
+
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);

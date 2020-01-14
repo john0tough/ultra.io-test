@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { SearchComponent } from './search.component';
 import { SearchPageComponent } from '../page/search-page.component';
 import { MockComponent } from 'ng-mocks';
-import { TrendingPageComponent } from '../page/page.component';
+import { TrendingPageComponent } from '../page/trending-page.component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';

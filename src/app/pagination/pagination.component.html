@@ -1,22 +1,22 @@
-<nav class="no-left-gutter no-right-gutter">
+<nav id="paginator" class="no-left-gutter no-right-gutter">
     <ul class="pagination d-flex justify-content-end">
         <li class="mr-auto pt-2">
             <span>Page {{ currentPage$ | async }} of {{ totalPages$ | async }}</span>
         </li>
-        <li class="page-item">
+        <li class="page-item prev-page">
             <a class="page-link" [routerLink]="['../' + (prevPage$ | async)]">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
-        <li class="page-item" *ngFor="let item of (pageList$ | async)">
-            <a *ngIf="!item.isCurrentPage" class="page-link" [routerLink]="['../' + item.page]">
+        <li class="page-item numbered-page" *ngFor="let item of (pageList$ | async)">
+            <a *ngIf="!item.isCurrentPage" class="page-link " [routerLink]="['../' + item.page]">
                 {{ item.page }}
             </a>
             <span *ngIf="item.isCurrentPage" class="page-link text-secondary">
                 {{ item.page }}
             </span>
         </li>
-        <li class="page-item">
+        <li class="page-item next-page">
             <a class="page-link" [routerLink]="[ '../' + (nextPage$ | async) ]">
                 <span aria-hidden="true">&raquo;</span>
             </a>

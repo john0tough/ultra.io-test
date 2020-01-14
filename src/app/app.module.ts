@@ -8,7 +8,7 @@ import { GifProvider } from './shared/contracts/gif-provider';
 import { HttpClientModule } from '@angular/common/http';
 import { GifListComponent } from './gif-list/gif-list.component';
 import { PaginationComponent } from './pagination/pagination.component';
-import { TrendingPageComponent } from './page/page.component';
+import { TrendingPageComponent } from './page/trending-page.component';
 import { SearchComponent } from './search/search.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SearchPageComponent } from './page/search-page.component';

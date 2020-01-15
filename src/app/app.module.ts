@@ -13,6 +13,8 @@ import { SearchComponent } from './search/search.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SearchPageComponent } from './page/search-page.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ImageProvider } from './shared/contracts/image-provider.service';
+import { GifImageProvider } from './shared/services/gif-image-provider.service';
 const appRoutes: Routes = [
   {
     path: '',
@@ -46,6 +48,7 @@ const appRoutes: Routes = [
   providers: [
     { provide: WebApiClient, useClass: GiphyWebApiClient },
     { provide: GifProvider, useClass: GiphyGifProvider },
+    { provide: ImageProvider, useClass: GifImageProvider }
   ],
   bootstrap: [AppComponent]
 })

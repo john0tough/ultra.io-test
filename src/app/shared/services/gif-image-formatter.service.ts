@@ -1,7 +1,7 @@
-import { ImageProvider } from '../contracts/image-provider.service';
+import { ImageFormatter } from '../contracts/image-formatter.service';
 import { GifModel } from '../contracts/gif.model';
 
-export class GifImageProvider implements ImageProvider<GifModel> {
+export class GifImageProvider implements ImageFormatter<GifModel> {
     provide(resource: GifModel): HTMLImageElement {
         const img = new Image();
         img.src = resource.src;

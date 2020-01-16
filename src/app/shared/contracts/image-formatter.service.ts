@@ -1,3 +1,3 @@
-export abstract class ImageProvider<TModel> {
+export abstract class ImageFormatter<TModel> {
     abstract provide(resource: TModel): HTMLImageElement;
 }

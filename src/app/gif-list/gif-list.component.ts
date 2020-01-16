@@ -2,7 +2,7 @@ import { Component, Input, Renderer2, ElementRef, ViewChild } from '@angular/cor
 import { GifModel } from '../shared/contracts/gif.model';
 import { Observable, fromEvent, from, of } from 'rxjs';
 import { map, flatMap, scan, filter, tap } from 'rxjs/operators';
-import { ImageProvider } from '../shared/contracts/image-provider.service';
+import { ImageFormatter } from '../shared/contracts/image-formatter.service';
 
 @Component({
   selector: 'app-gif-list',
@@ -19,7 +19,7 @@ export class GifListComponent {
 
   constructor(
     private renderer: Renderer2,
-    private imageProvider: ImageProvider<GifModel>
+    private imageProvider: ImageFormatter<GifModel>
   ) {}
 
   private getListElements(gifs$: Observable<GifModel[]>): void {

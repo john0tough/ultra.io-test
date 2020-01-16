@@ -4,11 +4,11 @@ import { GifListComponent } from './gif-list.component';
 import { cold, getTestScheduler } from 'jasmine-marbles';
 import { By } from '@angular/platform-browser';
 import { GifModel } from '../shared/contracts/gif.model';
-import { ImageProvider } from '../shared/contracts/image-provider.service';
+import { ImageFormatter } from '../shared/contracts/image-formatter.service';
 describe('GifListComponent', () => {
     let component: GifListComponent;
     let fixture: ComponentFixture<GifListComponent>;
-    const mockImageProviderService = jasmine.createSpyObj<ImageProvider<GifModel>>('ImageProvider', ['provide']);
+    const mockImageProviderService = jasmine.createSpyObj<ImageFormatter<GifModel>>('ImageProvider', ['provide']);
     let imgArray: HTMLImageElement[] = [];
 
     const initServices = (): void => {
@@ -27,7 +27,7 @@ describe('GifListComponent', () => {
         TestBed.configureTestingModule({
             providers: [
                 Renderer2,
-                { provide: ImageProvider, useValue: mockImageProviderService }
+                { provide: ImageFormatter, useValue: mockImageProviderService }
             ],
             declarations: [GifListComponent]
         })

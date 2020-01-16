@@ -26,18 +26,18 @@ export class PaginationComponent {
     this.nextPage$ = values$.pipe(map(page => (page.pageNumber + 1 < page.totalPages ? page.pageNumber + 1 : page.totalPages)));
     this.totalPages$ = values$.pipe(map(page => page.totalPages));
 
-    const pageNumeration = (page: number, isCurrentPage: boolean) => ({
-      page,
+    const pageNumerationFn = (pageNumber: number, isCurrentPage: boolean) => ({
+      page: pageNumber,
       isCurrentPage
     });
 
     this.pageList$ = values$.pipe(
       map(page => ([...new Array(page.totalPages > 10 ? 10 : page.totalPages)].map((val, idx) =>
           page.pageNumber < 6
-            ? pageNumeration(idx + 1, idx + 1 === page.pageNumber ? true : false)
+            ? pageNumerationFn(idx + 1, idx + 1 === page.pageNumber ? true : false)
             : page.pageNumber + 4 < page.totalPages
-              ? pageNumeration(page.pageNumber - 5 + idx, page.pageNumber - 5 + idx === page.pageNumber ? true : false)
-              : pageNumeration(page.totalPages - 9 + idx, page.totalPages - 9 + idx === page.pageNumber ? true : false)
+              ? pageNumerationFn(page.pageNumber - 5 + idx, page.pageNumber - 5 + idx === page.pageNumber ? true : false)
+              : pageNumerationFn(page.totalPages - 9 + idx, page.totalPages - 9 + idx === page.pageNumber ? true : false)
         ))
       )
     );

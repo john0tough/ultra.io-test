@@ -6,7 +6,6 @@ import { By } from '@angular/platform-browser';
 import { GifModel } from '../shared/contracts/gif.model';
 import { ImageProvider } from '../shared/contracts/image-provider.service';
 describe('GifListComponent', () => {
-
     let component: GifListComponent;
     let fixture: ComponentFixture<GifListComponent>;
     const mockImageProviderService = jasmine.createSpyObj<ImageProvider<GifModel>>('ImageProvider', ['provide']);

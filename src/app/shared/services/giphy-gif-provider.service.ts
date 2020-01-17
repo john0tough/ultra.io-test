@@ -4,7 +4,6 @@ import { GifProvider } from '../contracts/gif-provider';
 import { GifPage } from '../contracts/gif-page.model';
 import { WebApiClient } from '../contracts/http-client';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Injectable()
 export class GiphyGifProvider implements GifProvider {

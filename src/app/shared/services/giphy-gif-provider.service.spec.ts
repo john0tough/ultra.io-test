@@ -1,4 +1,4 @@
-import { WebApiClient } from "../contracts/http-client";
+import { WebApiClient } from '../contracts/http-client';
 import { GiphyGifProvider } from './giphy-gif-provider.service';
 import { cold } from 'jasmine-marbles';
 

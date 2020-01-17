@@ -16,8 +16,16 @@ export class GiphyGifProvider implements GifProvider {
     return this.makeRequest('search', pageSize, pageNumber, { q: tags.join('-') });
   }
 
-  private makeRequest(resource: string, pageSize: number, pageNumber: number, extraParams?: {}): Observable<GifPage> {
-    return this.webService.get<any>(resource, { ...this.getDefaultParamsRequest(pageSize, pageNumber), ...extraParams }).pipe(
+  private makeRequest(
+    resource: string,
+    pageSize: number,
+    pageNumber: number,
+    extraParams?: {}
+  ): Observable<GifPage> {
+    return this.webService.get<any>(resource, {
+      ...this.getDefaultParamsRequest(pageSize, pageNumber),
+      ...extraParams
+    }).pipe(
       map<any, GifPage>(response => ({
         gifs: response.data.map(element => ({
           src: element.images.fixed_width.url,
